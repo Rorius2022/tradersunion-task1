@@ -1,0 +1,12 @@
+<h1>Delete Task</h1>
+<p>Are you sure you want to delete this task?</p>
+<p>
+    <strong>Title:</strong> <?= $this->escapeHtml($task->title) ?><br>
+    <strong>Description:</strong> <?= $this->escapeHtml($task->description) ?><br>
+    <strong>Completed:</strong> <?= $task->is_completed ? 'Yes' : 'No' ?>
+</p>
+<form action="<?= $this->url('task', ['action' => 'delete', 'id' => $task->id]) ?>" method="post">
+    <input type="hidden" name="id" value="<?= $task->id ?>">
+    <input type="submit" name="del" value="Yes">
+    <input type="submit" name="del" value="No">
+</form>

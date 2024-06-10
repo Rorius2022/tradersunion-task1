@@ -1,0 +1,30 @@
+<h1>Task List</h1>
+<p>
+    <a href="<?= $this->url('task', ['action' => 'add']) ?>" class="btn btn-success">Add new task</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($tasks as $task): ?>
+                <tr>
+                    <td><?= $this->escapeHtml($task->title) ?></td>
+                    <td><?= $this->escapeHtml($task->description) ?></td>
+                    <td><?= $task->is_completed ? 'Yes' : 'No' ?></td>
+                    <td>
+                        <a href="<?= $this->url('task', ['action' => 'edit', 'id' => $task->id]) ?>" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="<?= $this->url('task', ['action' => 'delete', 'id' => $task->id]) ?>" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

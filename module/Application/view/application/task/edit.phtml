@@ -1,0 +1,17 @@
+<h1>Edit Task</h1>
+<form action="<?= $this->url('task', ['action' => 'edit', 'id' => $task->id]) ?>" method="post">
+    <input type="hidden" name="id" value="<?= $task->id ?>">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" id="title" class="form-control" value="<?= $this->escapeHtml($task->title) ?>">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="description" id="description" class="form-control"><?= $this->escapeHtml($task->description) ?></textarea>
+    </div>
+    <div class="form-check mb-3">
+        <input type="checkbox" name="is_completed" class="form-check-input" id="is_completed" <?= $task->is_completed ? 'checked' : '' ?>>
+        <label for="is_completed" class="form-check-label">Completed</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
